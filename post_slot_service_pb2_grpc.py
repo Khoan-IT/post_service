@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import intent_slot_service_pb2 as intent__slot__service__pb2
+import post_slot_service_pb2 as post__slot__service__pb2
 
 
-class ISServiceStub(object):
+class PSServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -14,42 +14,42 @@ class ISServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.IntentSlotRecognize = channel.unary_unary(
-                '/intent.slot.v1.ISService/IntentSlotRecognize',
-                request_serializer=intent__slot__service__pb2.IntentSlotRecognizeRequest.SerializeToString,
-                response_deserializer=intent__slot__service__pb2.IntentSlotRecognizeResponse.FromString,
+        self.PostSlotRecognize = channel.unary_unary(
+                '/post.slot.v1.PSService/PostSlotRecognize',
+                request_serializer=post__slot__service__pb2.PostSlotRecognizeRequest.SerializeToString,
+                response_deserializer=post__slot__service__pb2.PostSlotRecognizeResponse.FromString,
                 )
 
 
-class ISServiceServicer(object):
+class PSServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def IntentSlotRecognize(self, request, context):
+    def PostSlotRecognize(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ISServiceServicer_to_server(servicer, server):
+def add_PSServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'IntentSlotRecognize': grpc.unary_unary_rpc_method_handler(
-                    servicer.IntentSlotRecognize,
-                    request_deserializer=intent__slot__service__pb2.IntentSlotRecognizeRequest.FromString,
-                    response_serializer=intent__slot__service__pb2.IntentSlotRecognizeResponse.SerializeToString,
+            'PostSlotRecognize': grpc.unary_unary_rpc_method_handler(
+                    servicer.PostSlotRecognize,
+                    request_deserializer=post__slot__service__pb2.PostSlotRecognizeRequest.FromString,
+                    response_serializer=post__slot__service__pb2.PostSlotRecognizeResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'intent.slot.v1.ISService', rpc_method_handlers)
+            'post.slot.v1.PSService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ISService(object):
+class PSService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def IntentSlotRecognize(request,
+    def PostSlotRecognize(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +59,8 @@ class ISService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/intent.slot.v1.ISService/IntentSlotRecognize',
-            intent__slot__service__pb2.IntentSlotRecognizeRequest.SerializeToString,
-            intent__slot__service__pb2.IntentSlotRecognizeResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/post.slot.v1.PSService/PostSlotRecognize',
+            post__slot__service__pb2.PostSlotRecognizeRequest.SerializeToString,
+            post__slot__service__pb2.PostSlotRecognizeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

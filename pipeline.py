@@ -13,7 +13,7 @@ from transformers import (
 )
 
 
-class IntentSlotModel:
+class PostSlotModel:
     def __init__(self, model_path: str, **kwargs):
         self.config = self._get_config(model_path)
         self._init_model()

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package post.slot.v1;
+
+
+service PSService {
+    rpc PostSlotRecognize (PostSlotRecognizeRequest) returns (PostSlotRecognizeResponse){
+    }
+}
+
+message PostSlotRecognizeRequest{
+    string message = 1;
+}
+
+message PostSlotRecognizeResponse{
+    string message = 1;
+}
