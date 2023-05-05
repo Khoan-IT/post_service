@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package intent.slot.v1;
+
+
+service ISService {
+    rpc IntentSlotRecognize (IntentSlotRecognizeRequest) returns (IntentSlotRecognizeResponse){
+    }
+}
+
+message IntentSlotRecognizeRequest{
+    string message = 1;
+}
+
+message IntentSlotRecognizeResponse{
+    string message = 1;
+}
